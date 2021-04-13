@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. --><project basedir="." default="build" name="MiniProject">
+    <property environment="env"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.8"/>
+    <property name="source" value="1.8"/>
+    <path id="jdbc.userclasspath"/>
+    <path id="MiniProject.classpath">
+        <pathelement location="bin"/>
+        <path refid="jdbc.userclasspath"/>
+        <pathelement location="../../git/ScenarioGenerator/Scenario_Generator/lib/mysql-connector-java-5.1.38-bin.jar"/>
+        <pathelement location="../../git/MCommonLib/MCommonLib/libs/commons-dbcp2-2.1.1.jar"/>
+        <pathelement location="../../git/AST_IVR/libs/commons-pool2-2.4.2.jar"/>
+        <pathelement location="../../git/MCommonLib/MCommonLib/libs/commons-logging-1.2.jar"/>
+        <pathelement location="../../git/ScenarioGenerator/Scenario.Module/lib/gson-2.8.2.jar"/>
+        <pathelement location="../../git/CallGateway/CallGatewayInterface/libs/bcprov-jdk15on-162.jar"/>
+        <pathelement location="../../git/CallGateway/CallGatewayInterface/libs/commons-codec-1.10.jar"/>
+    </path>
+    <target name="init">
+        <mkdir dir="bin"/>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="src">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="bin"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src"/>
+            <classpath refid="MiniProject.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+    <target name="ApplicationMain">
+        <java classname="modernwave_main.ApplicationMain" failonerror="true" fork="yes">
+            <classpath refid="MiniProject.classpath"/>
+        </java>
+    </target>
+    <target name="Chat_Client_Main">
+        <java classname="modernwave_ChatClient.Chat_Client_Main" failonerror="true" fork="yes">
+            <classpath refid="MiniProject.classpath"/>
+        </java>
+    </target>
+    <target name="TEST_Main">
+        <java classname="modernwave_main.TEST_Main" failonerror="true" fork="yes">
+            <classpath refid="MiniProject.classpath"/>
+        </java>
+    </target>
+    <target name="TimezoneDump">
+        <java classname="com.mysql.cj.jdbc.admin.TimezoneDump" failonerror="true" fork="yes">
+            <classpath refid="MiniProject.classpath"/>
+        </java>
+    </target>
+</project>

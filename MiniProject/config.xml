@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>MiniProject</comment>
+	<!-- DB -->
+	<entry key="test_db.Server">192.168.0.143</entry>
+	<entry key="test_db.Port">13308</entry>
+	<entry key="test_db.User">root</entry>
+	<entry key="test_db.Password">modern3600</entry>
+	<entry key="test_db.Database">test_db</entry>
+	
+	<!-- Server -->
+<!--  	<entry key="Chat_Server">192.168.0.173</entry>-->
+	<entry key="Chat_Server">192.168.0.173</entry>
+	<entry key="Chat_Port">10333</entry>
+	
+	<!-- Client -->
+	<entry key="Cha_Client">test_db</entry>
+	<entry key="Cha_Port">modern3600</entry>
+	
+	<!-- CustomerInfo -->
+	<entry key="BuyerCode">01089505183</entry>
+	<entry key="ArsRecvTel">18775551</entry>
+	<entry key="ReqArsFirm">NICE</entry>
+	
+	<!-- Module -->
+	<entry key="Module.YN">Y</entry>
+	<entry key="Project_PackageNames">kr.co.modernwave.module.work.WorkHTTP,kr.co.modernwave.module.work.WorkSOAP</entry>
+	
+</properties>
