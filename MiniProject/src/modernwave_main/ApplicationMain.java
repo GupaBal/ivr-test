@@ -55,7 +55,7 @@ public class ApplicationMain {
 //			receiver.run();
 			new Chat_Server_Reciever(p, waitObj, dm, dars_querydb).run();
 		}
-//
+// 
 	}
 
 }
